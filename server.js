@@ -20,7 +20,8 @@ router.use(function(req, res, next) {
 
     // log each request to the console
     console.log(req.method, req.url);
-
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     // continue doing what we were doing and go to the route
     next();
 });
@@ -33,7 +34,8 @@ router.get('/login', function(req, res) {
     }
       else{
         console.log('successLogin');
-        res.send(response);
+        console.log('NodeDaten: '+ body);
+        res.send(body);
       }
   });
 });

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CleaningDataService } from './shared/cleaning-data.service';
 import { LoginService } from './shared/login.service';
+import { User } from './shared/user';
+
 //import '.shared/rxjs-operators';
 
 @Component({
@@ -12,6 +14,7 @@ import { LoginService } from './shared/login.service';
 export class AppComponent {
   title = 'Putzliste';
   putzliste : string;
+  user: User;
   constructor (private loginService: LoginService,private cleaningDataService : CleaningDataService){}
    ngOnInit() { }
   GetCleaningList(){
@@ -21,6 +24,6 @@ export class AppComponent {
   }
   loginUser(){
     this.loginService.userlogin()
-    .subscribe()
+    .subscribe(user => this.user.Username = user.Username)
   }
 }
