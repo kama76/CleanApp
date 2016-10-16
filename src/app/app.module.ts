@@ -4,10 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { CleanListComponent } from './clean-list/clean-list.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CleanListComponent
   ],
   imports: [
     BrowserModule,
