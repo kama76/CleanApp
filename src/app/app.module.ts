@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { CleanListComponent } from './clean-list/clean-list.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CleanListComponent
+    CleanListComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

@@ -10,9 +10,8 @@ export class LoginService {
   constructor(private http : Http) { 
   }
   private loginURL = 'http://localhost:8080/login';
-  userlogin():Observable<User>{
-    
-    return this.http.get(this.loginURL)
+  userlogin(UserNameLogin, PassWordLogin):Observable<User>{ 
+    return this.http.post(this.loginURL, {username : UserNameLogin, password : PassWordLogin})
     .map(this.loginData)  
     .catch(this.handleError)
   }

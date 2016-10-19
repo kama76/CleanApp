@@ -1,9 +1,5 @@
-<h1>
-  {{title}}
-</h1>
-<h3>{{ putzliste }}</h3>
-<login></login>
-  <!--<form>
+<!--To do: Validierung des Inputs-->
+  <form>
     <div class="form-group">
       <label for="name">Username</label>
       <input type="text" class="form-control" #username placeholder="Username">
@@ -11,9 +7,8 @@
     <div class="form-group">
       <label for="name">Password</label>
       <input type="password" class="form-control" #password placeholder="Password">
-    </div>-->
+    </div>
     <!--Unten der original Code von https://auth0.com/docs/quickstart/spa/angular2/02-custom-login
     <button type="submit" class="btn btn-default" (click)="auth.login(username.value, password.value)">Login</button>-->
-   <!-- <button type="submit" class="btn btn-default" (click)="loginUser(username.value, password.value)">Login</button>
-  </form>-->
-<button (click)="GetCleaningList()">Putzliste</button>
+    <button type="submit" class="btn btn-default" (click)="loginUser(username.value, password.value)">Login</button>
+  </form>

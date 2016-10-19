@@ -26,9 +26,12 @@ router.use(function(req, res, next) {
     next();
 });
 
-router.get('/login', function(req, res) {
+router.post('/login', function(req, res) {
+  let username = req.param('username');
+  let password = req.param('password');
+  console.log(username);
   console.log('login');
-  request('http://localhost:8001/rest/json/login', function(error, response, body) {
+  request.get('http://localhost:8001/rest/json/login/knapp', {form:{id : 'knapp'}}, function(error, response, body) {
     if(error) {
       console.log('loginError'+ error);
     }
