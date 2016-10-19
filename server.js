@@ -34,12 +34,13 @@ router.post('/login', function(req, res) {
   request.get('http://localhost:8001/rest/json/login/knapp', {form:{id : 'knapp'}}, function(error, response, body) {
     if(error) {
       console.log('loginError'+ error);
+      res.send(error);
     }
-      else{
-        console.log('successLogin');
-        console.log('NodeDaten: '+ body);
-        res.send(body);
-      }
+    else{
+      console.log('successLogin');
+      console.log('NodeDaten: '+ body);
+      res.send(body);
+    }
   });
 });
 

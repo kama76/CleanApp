@@ -11,6 +11,7 @@ import { User } from '../shared/user';
 //To do: Validierung des Inputs
 export class LoginComponent implements OnInit {
   user: User;
+  errorMessage: string;
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
@@ -34,8 +35,8 @@ export class LoginComponent implements OnInit {
                                     console.log("haaaaalllooo" +val);
     // use val
     }})
-                //error => this.errorMessage = <any>error) ;
-                //error => console.log("Fehker:" + error)) ;
+                error => this.errorMessage = <any>error;
+                error => console.log("Fehker:" + error);
   }
 
 }

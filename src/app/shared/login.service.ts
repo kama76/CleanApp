@@ -17,9 +17,15 @@ export class LoginService {
   }
 
   private loginData(res: Response){
-    console.log(res);
+    console.log("die Response(loginData): "+res);
+    console.log(res.status);
+    //To do: Login richtig auslesen vom Response!!!!!
+    if(res.status == 200){
+      console.log("Der user ist eingeloggt!!")
+      localStorage.setItem('currentUser', 'loggedIn');
+    }
     let body = res.json();
-    console.log(body[0])
+    console.log("Der Body:" +body[0])
     let user = new User(body[0].username, "")
     console.log("Der user: "+ user.Username);
     //let test = body.json();
@@ -31,7 +37,7 @@ export class LoginService {
     // In a real world app, we might use a remote logging infrastructure
     // We'd also dig deeper into the error to get a better message
     let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); // log to console instead
     return Observable.throw(errMsg);
   }
