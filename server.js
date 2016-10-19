@@ -28,7 +28,7 @@ router.use(function(req, res, next) {
 
 router.get('/login', function(req, res) {
   console.log('login');
-  request('http://localhost:47040/rest/json/login', function(error, response, body) {
+  request('http://localhost:8001/rest/json/login', function(error, response, body) {
     if(error) {
       console.log('loginError'+ error);
     }

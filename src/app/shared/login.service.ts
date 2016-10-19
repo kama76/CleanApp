@@ -21,7 +21,8 @@ export class LoginService {
     console.log(res);
     let body = res.json();
     console.log(body[0])
-    let user = new User(body[0].Username, "")
+    let user = new User(body[0].username, "")
+    console.log("Der user: "+ user.Username);
     //let test = body.json();
     //return body[0] || {};
     return user;
