@@ -1,3 +1,15 @@
 <p>
   clean-list works!
 </p>
+<div class="card">
+  <div class=card-block>
+    <ul class="list-group">
+      <li *ngFor="let room of roomArray" class="list-group-item">
+        <span>  <b> RaumBezeichnung:</b>{{ room.roomName }}</span><span class="badge"><b>Raumnummer:</b> {{ room.roomNr }}</span>
+      </li>
+    </ul>
+    <button (click)="GetCleaningList()" class="btn btn-default">Putzliste</button>
+  </div>
+</div>
+
+

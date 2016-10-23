@@ -1,15 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { CleaningDataService } from '../shared/cleaning-data.service';
+import { Room } from '../clean-list/room';
+
 
 @Component({
   selector: 'clean-list',
   templateUrl: './clean-list.component.html',
-  styleUrls: ['./clean-list.component.css']
+  styleUrls: ['./clean-list.component.css'],
+  providers: [ CleaningDataService ]
 })
 export class CleanListComponent implements OnInit {
-
-  constructor() { }
+  roomArray: Room[] = [];
+  constructor(private cleaningDataService: CleaningDataService) { }
 
   ngOnInit() {
+  }
+
+  GetCleaningList(){
+    this.roomArray = [];
+    this.cleaningDataService.getCleanList()
+    .subscribe(
+      cleanListData =>{
+        console.log(cleanListData);
+        for(let roomdata of cleanListData){
+          let room = new Room();
+          room.roomName = roomdata.pl_bez;
+          room.roomNr = roomdata.pl_nr;
+          this.roomArray.push(room);
+          console.log(this.roomArray);
+        }
+      }
+    )
   }
 
 }

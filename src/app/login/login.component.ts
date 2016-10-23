@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../shared/login.service';
+import { Router } from '@angular/router';
 import { User } from '../shared/user';
 
 @Component({
@@ -12,10 +13,12 @@ import { User } from '../shared/user';
 export class LoginComponent implements OnInit {
   user: User;
   errorMessage: string;
-  constructor(private loginService: LoginService) { }
+
+  constructor(private loginService: LoginService, private router: Router ) { }
 
   ngOnInit() {
     this.user = new User(null, null);
+    this.loginService.logout();
   }
 
   loginUser(username :string, password:string){
@@ -23,20 +26,27 @@ export class LoginComponent implements OnInit {
     this.loginService.userlogin(username, password)
     //.subscribe(response => this.user = response)
     //.subscribe(loginData => console.log("Hello  "+ loginData),
-    .subscribe(loginData => {for (const key of Object.keys(loginData)) {
-                                    const val = loginData[key];
-                                    console.log(val);
-                                    if(key==="Username"){
-                                      console.log("yeaaaahhh");
-                                      return this.user.Username = loginData[key];
-                                      //console.log(this.user.Username);
-                                    }else{this.user.Username = "test"}
-                                    console.log("Der Schlüssel...."+key)
-                                    console.log("haaaaalllooo" +val);
-    // use val
-    }})
-                error => this.errorMessage = <any>error;
-                error => console.log("Fehker:" + error);
+    .subscribe(
+      loginData => {
+        console.log("Hier ist die Navigation");
+        this.router.navigate(['/']);
+        for (const key of Object.keys(loginData)) {
+            const val = loginData[key];
+            console.log(val);
+            if(key==="Username"){
+              console.log("yeaaaahhh");
+              return this.user.Username = loginData[key];
+              //console.log(this.user.Username);
+            }else{
+              this.user.Username = "test";
+            }
+              //console.log("Der Schlüssel...."+key)
+        }
+      },
+      error => {
+        this.errorMessage = <any>error;
+        error => console.log("Fehker:" + error);
+      });
   }
 
 }

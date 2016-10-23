@@ -3,13 +3,15 @@ import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../shared/user';
 import '../shared/rxjs-operators';
+import { Router } from '@angular/router';
 
 
 @Injectable()
 export class LoginService {
-  constructor(private http : Http) { 
+  constructor(private http : Http, private router: Router) { 
   }
   private loginURL = 'http://localhost:8080/login';
+
   userlogin(UserNameLogin, PassWordLogin):Observable<User>{ 
     return this.http.post(this.loginURL, {username : UserNameLogin, password : PassWordLogin})
     .map(this.loginData)  
@@ -19,18 +21,26 @@ export class LoginService {
   private loginData(res: Response){
     console.log("die Response(loginData): "+res);
     console.log(res.status);
+    let body = res.json();
     //To do: Login richtig auslesen vom Response!!!!!
     if(res.status == 200){
+      let token = body["faketoken"];
       console.log("Der user ist eingeloggt!!")
-      localStorage.setItem('currentUser', 'loggedIn');
+      localStorage.setItem('currentUser', token);
     }
-    let body = res.json();
-    console.log("Der Body:" +body[0])
-    let user = new User(body[0].username, "")
-    console.log("Der user: "+ user.Username);
-    //let test = body.json();
+    console.log("Der Body:" +body);
+    //let test = JSON.stringify(body);
+        //debugger;
+    let user = new User(body["username"], "")
+    //console.log("Der user: "+ user.Username);
     //return body[0] || {};
     return user;
+  }
+
+  logout(): void {
+    localStorage.removeItem("currentUser");
+    console.log("logout");
+    this.router.navigate(['/login']);
   }
 
   private handleError (error: any) {

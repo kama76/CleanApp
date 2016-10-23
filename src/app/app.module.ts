@@ -5,9 +5,12 @@ import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
+import { routing } from './shared/app.routing';
 import { CleanListComponent } from './clean-list/clean-list.component';
 import { LoginComponent } from './login/login.component';
-
+import {  LoginService } from './shared/login.service';
+import { AuthGuard } from './shared/auth-guard.service';
+import { CleaningDataService } from './shared/cleaning-data.service';
 
 @NgModule({
   declarations: [
@@ -19,8 +22,13 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     FormsModule,
     HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    LoginService,
+    CleaningDataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

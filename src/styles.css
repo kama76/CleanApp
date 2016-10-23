@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+.navbar{
+    box-shadow: 0 2px 2px rgba(0,0,0,.1);
+}
+
+.content{
+    width: 60%;
+    margin: auto;
+}
+
+#logoutbtn{
+    float: right;
+}
+
+#loginForm{
+    width: 50%;
+    margin: auto;
+
+}
+
+.card{
+    position: relative;
+    display: block;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 3px 5px #e2e2e2;
+    width: 60%;
+    margin: auto;
+}
+
+.card-block{
+    padding: 20px 20px 20px 20px;
+}
+
+.page-heading{
+    font-size: 2.3rem;
+    color: #818a91;
+    margin-bottom: 0;
+    padding-left: 5%;
+}
