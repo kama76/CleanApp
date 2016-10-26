@@ -9,7 +9,6 @@ export class AuthGuard implements CanActivate {
     canActivate() {
         if (localStorage.getItem('currentUser')) {
             // logged in so return true
-            console.log("Der user ist da");
             return true;
         }
         // not logged in so redirect to login page

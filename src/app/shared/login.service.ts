@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
+  
+  private loginURL: string = 'http://localhost:8080/login';
+  user: User;
   constructor(private http : Http, private router: Router) { 
   }
-  private loginURL = 'http://localhost:8080/login';
+
 
   userlogin(UserNameLogin, PassWordLogin):Observable<User>{ 
     return this.http.post(this.loginURL, {username : UserNameLogin, password : PassWordLogin})
@@ -19,27 +22,25 @@ export class LoginService {
   }
 
   private loginData(res: Response){
-    console.log("die Response(loginData): "+res);
-    console.log(res.status);
     let body = res.json();
     //To do: Login richtig auslesen vom Response!!!!!
     if(res.status == 200){
       let token = body["faketoken"];
-      console.log("Der user ist eingeloggt!!")
       localStorage.setItem('currentUser', token);
     }
-    console.log("Der Body:" +body);
     //let test = JSON.stringify(body);
-        //debugger;
-    let user = new User(body["username"], "")
+    //debugger;
+    //this.user = new User(body["username"], "")
+    this.user = new User(body["username"], "");
     //console.log("Der user: "+ user.Username);
     //return body[0] || {};
-    return user;
+    console.log("Der User:"+this.user.Username);
+    return this.user;
   }
 
   logout(): void {
     localStorage.removeItem("currentUser");
-    console.log("logout");
+    //console.log("logout");
     this.router.navigate(['/login']);
   }
 

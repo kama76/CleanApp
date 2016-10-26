@@ -6,6 +6,8 @@ var app = express();
 var port = process.env.PORT || 8080;
 
 var bodyParser = require('body-parser');
+
+const xmlPort = "8001"
 app.use(bodyParser.json()); // unterstützt bodies im Format json
 app.use(bodyParser.urlencoded({extended: true}));//unterstützt kodierte bodies
 
@@ -32,7 +34,7 @@ router.post('/login', function(req, res) {
   let faketoken = 123456;
   console.log(username);
   console.log('login');
-  request.get('http://localhost:8001/rest/json/login/knapp', {form:{id : 'knapp'}}, function(error, response, body) {
+  request.get('http://localhost:'+xmlPort+'/rest/json/login/knapp', {form:{id : 'knapp'}}, function(error, response, body) {
     if(error) {
       console.log('loginError'+ error);
       res.send(error);
@@ -47,7 +49,7 @@ router.post('/login', function(req, res) {
 });
 
 router.get('/cleanlist', function(req, res){
-  request.get('http://localhost:8001/rest/json/cleanlist', function(error, response, body){
+  request.get('http://localhost:'+xmlPort+'/rest/json/cleanlist', function(error, response, body){
     if(error){
       console.log("Error beim Holen der Putzliste: "+error);
       res.send(error);

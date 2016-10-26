@@ -1,11 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 .navbar{
     box-shadow: 0 2px 2px rgba(0,0,0,.1);
+    height: 64px;
+    padding-left: 2rem;
 }
 
 .content{
     width: 60%;
     margin: auto;
+    margin-top: 5%;
 }
 
 #logoutbtn{
@@ -34,8 +37,84 @@
 }
 
 .page-heading{
-    font-size: 2.3rem;
+    font-size: 1.4rem;
     color: #818a91;
     margin-bottom: 0;
     padding-left: 5%;
+}
+
+#navbar-brand-custom{
+    font-size: 24px;
+    color: #424242;
+    font-weight: 600;
+    margin-left: 1em;
+}
+
+#navbar-brand-custom:hover{
+    color:#039BE5;
+}
+
+a {
+    color: #039BE5;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: none !important;
+}
+
+#customerMenu{
+    float: right;
+    margin-top: 0.5%;
+    margin-right: .8%;
+}
+
+#customerDropDown{
+    min-width:auto;
+}
+
+#logoutlink:hover{
+    cursor: pointer;
+}
+
+#easycamplogo{
+    height: 50px;
+    float: left;
+}
+
+/*.cardText{
+    display: initial;
+}
+
+.cardAction{
+    text-align: -webkit-right;
+    float: right;
+    margin-top: 1%;
+}*/
+
+.btnDoneCol{
+    text-align: right;
+}
+
+.roomNr{
+    margin-left: 11%;
+}
+
+.roomBez{
+    margin-left: 4%;
+    width: initial;
+}
+
+.fa-check{
+    padding-left: 11%;
+}
+
+.roomRow:nth-child(odd){
+    background-color:rgb(11, 163, 83);
+    color:white;
+}
+
+.roomRow:nth-child(even){
+    background-color: #50BF84;
+    color:white;
 }

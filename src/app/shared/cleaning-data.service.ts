@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-//import '../shared/rxjs-operators';
 
 
 
@@ -18,7 +17,6 @@ export class CleaningDataService {
 
   private extractData(res: Response) {
     let body = res.json();
-    console.log(body);
     return body || { };
   }
     //To do: error Handling!!!

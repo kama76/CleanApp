@@ -28,13 +28,10 @@ export class LoginComponent implements OnInit {
     //.subscribe(loginData => console.log("Hello  "+ loginData),
     .subscribe(
       loginData => {
-        console.log("Hier ist die Navigation");
         this.router.navigate(['/']);
         for (const key of Object.keys(loginData)) {
             const val = loginData[key];
-            console.log(val);
             if(key==="Username"){
-              console.log("yeaaaahhh");
               return this.user.Username = loginData[key];
               //console.log(this.user.Username);
             }else{
