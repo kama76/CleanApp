@@ -1,0 +1,11 @@
+Login mit Token
+
+Zeitpunkt für Laden der Putzliste anpassen(Muss nicht immer neu geladen werden)
+
+Bei Änderung des Status gereinigt einer Objektes Liste nicht neu laden, sondern Liste lokal updaten(Update wurde onehin auf den Server gesandt)
+
+Sortierung der Putzliste
+
+Animationen
+
+Flexbox => Putzliste
