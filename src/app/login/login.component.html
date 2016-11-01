@@ -1,6 +1,7 @@
 <!--To do: Validierung des Inputs-->
+<div [@logInOut]="stateExpression">
 <h4>{{ user.Username }}</h4>
-<div  class="card">
+<div  class="card" id="loginCard">
   <h1 class="page-heading">You are currently logged out!</h1>
   <form  id="loginForm" class="card-block">
     <div class="form-group">
@@ -15,4 +16,5 @@
     <button type="submit" class="btn btn-default" (click)="auth.login(username.value, password.value)">Login</button>-->
     <button type="submit" class="btn btn-default" (click)="loginUser(username.value, password.value)">Login</button>
   </form>
+</div>
 </div>

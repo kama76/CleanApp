@@ -6,7 +6,7 @@
 }
 
 .content{
-    width: 60%;
+/*width: 60%;*/
     margin: auto;
     margin-top: 5%;
 }
@@ -117,4 +117,10 @@ a:hover{
 .roomRow:nth-child(even){
     background-color: #50BF84;
     color:white;
+}
+
+@media(max-width:750px){
+    #loginCard{
+        width: 100%;
+    }
 }
